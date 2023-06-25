@@ -58,9 +58,9 @@ public class Topic_07_Part3_Handle_Textbox {
 		employeeIDTextbox.sendKeys(Keys.chord(Keys.CONTROL,"a"));
 		employeeIDTextbox.sendKeys(Keys.chord(Keys.DELETE));
 		employeeIDTextbox.sendKeys(employeeID);
-		sleepInSecond(3);
+		sleepInSecond(5);
 		
-		driver.findElement(By.xpath("//p[text()='Create Login Details']/parent::div//input")).click();
+		driver.findElement(By.xpath("//p[text()='Create Login Details']/parent::div//span")).click();
 		sleepInSecond(3);
 		
 		
@@ -68,8 +68,8 @@ public class Topic_07_Part3_Handle_Textbox {
 		driver.findElement(By.xpath("//label[text()='Password']/parent::div/following-sibling::div/input")).sendKeys("Password123@@");
 		driver.findElement(By.xpath("//label[text()='Confirm Password']/parent::div/following-sibling::div/input")).sendKeys("Password123@@");
 		
-		driver.findElement(By.xpath("button[contains(string(),'Save')]")).click();
-		sleepInSecond(8);
+		driver.findElement(By.xpath("//button[contains(string(),'Save')]")).click();
+		sleepInSecond(10);
 		
 		Assert.assertEquals(driver.findElement(By.name("firstName")).getAttribute("value"), "Automation2");
 		Assert.assertEquals(driver.findElement(By.name("lastName")).getAttribute("value"), "ABC12");
@@ -78,20 +78,20 @@ public class Topic_07_Part3_Handle_Textbox {
 		driver.findElement(By.xpath("//a[text()='Immigration']")).click();
 		sleepInSecond(5);
 		
-		driver.findElement(By.xpath("/h6[text()='Assigned Immigration Records']/following-sibling::button")).click();
+		driver.findElement(By.xpath("//h6[text()='Assigned Immigration Records']/following-sibling::button")).click();
 		driver.findElement(By.xpath("//label[text()='Number']/parent::div/following-sibling::div/input")).sendKeys(passportNumber);
 		driver.findElement(By.xpath("//label[text()='Comments']/parent::div/following-sibling::div/textarea")).sendKeys(comment);
-		driver.findElement(By.xpath("button[contains(string(),'Save')]")).click();
+		driver.findElement(By.xpath("//button[contains(string(),'Save')]")).click();
 		sleepInSecond(6);
 		
 		driver.findElement(By.cssSelector("i.bi-pencil-fill")).click();
 		sleepInSecond(3);
 		
 		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Number']/parent::div/following-sibling::div/input")).getAttribute("value"), passportNumber);
-		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Comments']/parent::div/following-sibling::div/input")).getAttribute("value"), comment);
+		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Comments']/parent::div/following-sibling::div/textarea")).getAttribute("value"), comment);
 		
 		driver.findElement(By.cssSelector("p.oxd-userdropdown-name")).click();
-		driver.findElement(By.xpath("//a[text()='Logout]")).click();
+		driver.findElement(By.xpath("//a[text()='Logout']")).click();
 		sleepInSecond(3);
 		
 		driver.findElement(By.name("username")).sendKeys("abc" + employeeID);
@@ -99,6 +99,9 @@ public class Topic_07_Part3_Handle_Textbox {
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		sleepInSecond(5);
 		
+		driver.findElement(By.xpath("//a//span[text()='My Info']")).click();
+		sleepInSecond(3);
+		
 		Assert.assertEquals(driver.findElement(By.name("firstName")).getAttribute("value"), "Automation2");
 		Assert.assertEquals(driver.findElement(By.name("lastName")).getAttribute("value"), "ABC12");
 		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).getAttribute("value"), employeeID);
@@ -110,7 +113,7 @@ public class Topic_07_Part3_Handle_Textbox {
 		sleepInSecond(3);
 		
 		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Number']/parent::div/following-sibling::div/input")).getAttribute("value"), passportNumber);
-		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Comments']/parent::div/following-sibling::div/input")).getAttribute("value"), comment);
+		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Comments']/parent::div/following-sibling::div/textarea")).getAttribute("value"), comment);
 	
 	}
 		 
